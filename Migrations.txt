@@ -1,0 +1,12 @@
+--comandos migraciones de Datos
+--1.dotnet ef migrations --project Persistence --startup-project Api add MigrationName // linea de comando que agregar las migraciones
+--2.dotnet ef migrations remove --project Persistence --startup-project Api // linea de comando que elimina las migraciones
+--3.dotnet ef database --project Persistence --startup-project Api update // linea de comando que actualiza las migraciones que no se encuentren en base
+--4.dotnet ef database --project Persistence --startup-project Api update [MigrationName] 
+	// linea de comando que actualiza la migracion especifica el nombre esta en el directorio de Migrations
+Nota:
+1. Cuando se ejecutan las migraciones "UPDATE" solo se pueden remover las que no se encuentren en la tabla de migrations de Base de datos
+2. El comando #2 solo removera la ultima migracion que aun no se encuentre en la tabla migrations de Base de datos
+3. Al Integrar ramas recordar que las migraciones se ejecutan una sola vez y se registrar en base, 
+	es decir que solo se debe ejecutar una sola unificacion de las migraciones
+4. En caso de necesitar actualizar una migracion especifica deben hacerlo e indicar que el resto tambien ejecute sus migraciones individuales
